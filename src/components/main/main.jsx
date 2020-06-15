@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 
 const Main = (props) => {
-  const {placesFound, placesNames} = props;
+  const {placesFound, places, onPlaceTitleClick} = props;
 
   return (
     <div className="page page--gray page--main">
@@ -75,8 +75,8 @@ const Main = (props) => {
               <b className="places__found">{placesFound} places to stay in Amsterdam</b>
               <div className="cities__places-list places__list tabs__content">
 
-                {placesNames.map((placeName, index) => (
-                  <article key={index + placeName} className="cities__place-card place-card">
+                {places.map((place, index) => (
+                  <article key={index + place} className="cities__place-card place-card">
                     <div className="cities__image-wrapper place-card__image-wrapper">
                       <a href="#">
                         <img className="place-card__image" src="img/apartment-01.jpg" width="260" height="200" alt="Place image"></img>
@@ -101,7 +101,7 @@ const Main = (props) => {
                         </div>
                       </div>
                       <h2 className="place-card__name">
-                        <a href="#">{placeName}</a>
+                        <a href="#" onClick={onPlaceTitleClick}>{place}</a>
                       </h2>
                       <p className="place-card__type">Apartment</p>
                     </div>
@@ -122,7 +122,8 @@ const Main = (props) => {
 
 Main.propTypes = {
   placesFound: PropTypes.number.isRequired,
-  placesNames: PropTypes.arrayOf(PropTypes.string).isRequired,
+  places: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onPlaceTitleClick: PropTypes.func.isRequired
 };
 
 export default Main;

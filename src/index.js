@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./components/app/app.jsx";
 
 const PLACES_FOUND = 312;
-const PLACES_NAMES = [
+const PLACES = [
   `Beautiful & luxurious apartment at great location`,
   `Wood and stone place`,
   `Canal View Prinsengracht`,
@@ -14,7 +14,7 @@ const init = () => {
   ReactDOM.render(
       <App
         placesFound={PLACES_FOUND}
-        placesNames={PLACES_NAMES}
+        places={PLACES}
       />,
       document.querySelector(`#root`)
   );

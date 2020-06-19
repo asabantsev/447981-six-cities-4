@@ -3,12 +3,45 @@ import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Main from "./main";
 
-const PLACES_FOUND = 312;
-const PLACES = [
-  `Beautiful & luxurious apartment at great location`,
-  `Wood and stone place`,
-  `Canal View Prinsengracht`,
-  `Nice, cozy, warm big bed apartment`,
+const OFFERS_FOUND = 312;
+const OFFERS = [
+  {
+    id: 1,
+    description: `Beautiful &amp; luxurious apartment at great location`,
+    price: 120,
+    rating: 4,
+    type: `Apartment`,
+    src: `img/apartment-01.jpg`,
+    isInBookmark: false,
+    isPremium: true,
+  }, {
+    id: 2,
+    description: `Wood and stone place`,
+    price: 80,
+    rating: 4,
+    type: `Private room`,
+    src: `img/room.jpg`,
+    isInBookmark: true,
+    isPremium: false,
+  }, {
+    id: 3,
+    description: `Canal View Prinsengracht`,
+    price: 132,
+    rating: 4,
+    type: `Apartment`,
+    src: `img/apartment-02.jpg`,
+    isInBookmark: false,
+    isPremium: false,
+  }, {
+    id: 4,
+    description: `Nice, cozy, warm big bed apartment`,
+    price: 180,
+    rating: 5,
+    type: `Apartment`,
+    src: `img/apartment-03.jpg`,
+    isInBookmark: false,
+    isPremium: false,
+  }
 ];
 
 Enzyme.configure({
@@ -16,23 +49,22 @@ Enzyme.configure({
 });
 
 describe(`MainE2eTest`, () => {
-  it(`Should place card title be pressed`, () => {
-    const onPlaceTitleClick = jest.fn();
+  it(`Should offer card title be pressed`, () => {
+    const onOfferTitleClick = jest.fn();
 
     const main = shallow(
         <Main
-          placesFound={PLACES_FOUND}
-          places={PLACES}
-          onPlaceTitleClick = {onPlaceTitleClick}
+          offersFound={OFFERS_FOUND}
+          offers={OFFERS}
+          onOfferTitleClick = {onOfferTitleClick}
         />
     );
 
-    const placeTitles = main.find(`.place-card__name a`);
+    const offerTitles = main.find(`.place-card__name a`);
 
-    placeTitles.forEach((placeTitle) => {
-      onPlaceTitleClick.mockClear();
-      placeTitle.simulate(`click`);
-      expect(onPlaceTitleClick).toHaveBeenCalledTimes(1);
+    offerTitles.forEach((offerTitle) => {
+      offerTitle.simulate(`click`);
+      expect(onOfferTitleClick).toHaveBeenCalledTimes(offerTitle.length);
     });
 
   });

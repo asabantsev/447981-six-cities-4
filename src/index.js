@@ -1,20 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/app/app.jsx";
+import offers from "./mocks/offers.js";
 
-const PLACES_FOUND = 312;
-const PLACES = [
-  `Beautiful & luxurious apartment at great location`,
-  `Wood and stone place`,
-  `Canal View Prinsengracht`,
-  `Nice, cozy, warm big bed apartment`,
-];
+const OFFERS_FOUND = 312;
 
 const init = () => {
   ReactDOM.render(
       <App
-        placesFound={PLACES_FOUND}
-        places={PLACES}
+        offersFound={OFFERS_FOUND}
+        offers={offers}
       />,
       document.querySelector(`#root`)
   );

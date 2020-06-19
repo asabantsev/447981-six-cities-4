@@ -1,9 +1,4 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import Main from "./main";
-
-const OFFERS_FOUND = 312;
-const OFFERS = [
+export default [
   {
     id: 1,
     description: `Beautiful &amp; luxurious apartment at great location`,
@@ -42,16 +37,3 @@ const OFFERS = [
     isPremium: false,
   }
 ];
-
-it(`Should Main render correctly`, () => {
-  const tree = renderer
-    .create(
-        <Main
-          offersFound={OFFERS_FOUND}
-          offers={OFFERS}
-          onOfferTitleClick = {() => {}}
-        />
-    ).toJSON();
-
-  expect(tree).toMatchSnapshot();
-});

@@ -1,8 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Main from "./main";
+import OfferList from "./offer-list.jsx";
 
-const OFFERS_FOUND = 312;
 const OFFERS = [
   {
     id: 1,
@@ -43,15 +42,15 @@ const OFFERS = [
   }
 ];
 
-it(`Should Main render correctly`, () => {
-  const tree = renderer
-    .create(
-        <Main
-          offersFound={OFFERS_FOUND}
-          offers={OFFERS}
-          onOfferTitleClick = {() => {}}
-        />
-    ).toJSON();
+describe(`OfferListSnapTest`, () => {
+  it(`OfferList should render list component with offers cards`, () => {
+    const tree = renderer
+      .create(<OfferList
+        offers = {OFFERS}
+        onOfferTitleClick = {() => {}}
+      />)
+      .toJSON();
 
-  expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
+  });
 });

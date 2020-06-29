@@ -265,7 +265,7 @@ exports[`Should Main render correctly 1`] = `
                     href="#"
                     onClick={[Function]}
                   >
-                    Beautiful &amp; luxurious apartment at great location
+                    Beautiful & luxurious apartment at great location
                   </a>
                 </h2>
                 <p

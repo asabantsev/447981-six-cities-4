@@ -1,16 +1,18 @@
 const path = require(`path`);
+const pathInfo = path.join(__dirname, `public`);
 
 module.exports = {
   entry: `./src/index.js`,
   output: {
     filename: `bundle.js`,
-    path: path.join(__dirname, `public`)
+    path: pathInfo,
   },
   devServer: {
-    contentBase: path.join(__dirname, `public`),
+    contentBase: pathInfo,
     open: true,
     inline: true,
     port: 1337,
+    historyApiFallback: true
   },
   module: {
     rules: [

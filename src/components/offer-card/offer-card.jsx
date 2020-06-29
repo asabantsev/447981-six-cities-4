@@ -13,7 +13,7 @@ class OfferCard extends PureComponent {
 
   render() {
     const {offer, onOfferTitleClick, onCardHover} = this.props;
-    const {id, description, price, type, src, isInBookmark, isPremium} = offer;
+    const {id, title, price, type, src, isInBookmark, isPremium} = offer;
     this.id = id;
     this.onCardHover = onCardHover;
 
@@ -47,7 +47,7 @@ class OfferCard extends PureComponent {
             </div>
           </div>
           <h2 className="place-card__name">
-            <a href="#" onClick={onOfferTitleClick}>{description}</a>
+            <a href="#" onClick={onOfferTitleClick}>{title}</a>
           </h2>
           <p className="place-card__type">{type}</p>
         </div>
@@ -67,7 +67,7 @@ class OfferCard extends PureComponent {
 OfferCard.propTypes = {
   offer: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    description: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     rating: PropTypes.number.isRequired,
     type: PropTypes.string.isRequired,

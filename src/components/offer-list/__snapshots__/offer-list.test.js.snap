@@ -99,7 +99,7 @@ exports[`OfferListSnapTest OfferList should render list component with offers ca
           href="#"
           onClick={[Function]}
         >
-          Beautiful &amp; luxurious apartment at great location
+          Beautiful & luxurious apartment at great location
         </a>
       </h2>
       <p

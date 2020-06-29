@@ -5,7 +5,7 @@ import OfferList from "./offer-list.jsx";
 const OFFERS = [
   {
     id: 1,
-    description: `Beautiful &amp; luxurious apartment at great location`,
+    title: `Beautiful & luxurious apartment at great location`,
     price: 120,
     rating: 4,
     type: `Apartment`,
@@ -14,7 +14,7 @@ const OFFERS = [
     isPremium: true,
   }, {
     id: 2,
-    description: `Wood and stone place`,
+    title: `Wood and stone place`,
     price: 80,
     rating: 4,
     type: `Private room`,
@@ -23,7 +23,7 @@ const OFFERS = [
     isPremium: false,
   }, {
     id: 3,
-    description: `Canal View Prinsengracht`,
+    title: `Canal View Prinsengracht`,
     price: 132,
     rating: 4,
     type: `Apartment`,
@@ -32,7 +32,7 @@ const OFFERS = [
     isPremium: false,
   }, {
     id: 4,
-    description: `Nice, cozy, warm big bed apartment`,
+    title: `Nice, cozy, warm big bed apartment`,
     price: 180,
     rating: 5,
     type: `Apartment`,

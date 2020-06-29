@@ -5,7 +5,7 @@ import OfferCard from "./offer-card.jsx";
 
 const OFFER = {
   id: 1,
-  description: `Beautiful &amp; luxurious apartment at great location`,
+  title: `Beautiful & luxurious apartment at great location`,
   price: 120,
   rating: 4,
   type: `Apartment`,

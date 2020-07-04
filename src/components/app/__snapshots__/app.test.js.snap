@@ -591,7 +591,20 @@ exports[`Should render App screen correctly 1`] = `
         >
           <section
             className="cities__map map"
-          />
+          >
+            <div
+              id="map"
+            >
+              <div
+                style={
+                  Object {
+                    "height": 526,
+                    "width": 512,
+                  }
+                }
+              />
+            </div>
+          </section>
         </div>
       </div>
     </div>

@@ -28,7 +28,8 @@ const OFFERS = [
       avatar: `img/avatar-angelina.jpg`,
       name: `Angelina`,
       isSuper: true,
-    }
+    },
+    coords: [52.3909553943508, 4.85309666406198],
   }, {
     id: 2,
     title: `Wood and stone place`,
@@ -50,7 +51,8 @@ const OFFERS = [
       avatar: `img/avatar-angelina.jpg`,
       name: `Angelina`,
       isSuper: true,
-    }
+    },
+    coords: [52.369553943508, 4.85309666406198],
   }, {
     id: 3,
     title: `Canal View Prinsengracht`,
@@ -72,7 +74,8 @@ const OFFERS = [
       avatar: `img/avatar-angelina.jpg`,
       name: `Angelina`,
       isSuper: true,
-    }
+    },
+    coords: [52.3909553943508, 4.929309666406198],
   }, {
     id: 4,
     title: `Nice, cozy, warm big bed apartment`,
@@ -94,7 +97,8 @@ const OFFERS = [
       avatar: `img/avatar-angelina.jpg`,
       name: `Angelina`,
       isSuper: true,
-    }
+    },
+    coords: [52.3809553943508, 4.939309666406198],
   }
 ];
 
@@ -104,7 +108,10 @@ it(`Should render App screen correctly`, () => {
         <App
           offersFound={OFFERS_FOUND}
           offers={OFFERS}
-        />
+        />,
+        {
+          createNodeMock: () => document.createElement(`div`)
+        }
     ).toJSON();
 
   expect(tree).toMatchSnapshot();

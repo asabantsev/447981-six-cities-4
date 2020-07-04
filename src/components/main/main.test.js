@@ -13,6 +13,7 @@ const OFFERS = [
     src: `img/apartment-01.jpg`,
     isInBookmark: false,
     isPremium: true,
+    coords: [52.3909553943508, 4.85309666406198],
   }, {
     id: 2,
     title: `Wood and stone place`,
@@ -22,6 +23,7 @@ const OFFERS = [
     src: `img/room.jpg`,
     isInBookmark: true,
     isPremium: false,
+    coords: [52.369553943508, 4.85309666406198],
   }, {
     id: 3,
     title: `Canal View Prinsengracht`,
@@ -31,6 +33,7 @@ const OFFERS = [
     src: `img/apartment-02.jpg`,
     isInBookmark: false,
     isPremium: false,
+    coords: [52.3909553943508, 4.929309666406198],
   }, {
     id: 4,
     title: `Nice, cozy, warm big bed apartment`,
@@ -40,6 +43,7 @@ const OFFERS = [
     src: `img/apartment-03.jpg`,
     isInBookmark: false,
     isPremium: false,
+    coords: [52.3809553943508, 4.939309666406198],
   }
 ];
 
@@ -50,7 +54,10 @@ it(`Should Main render correctly`, () => {
           offersFound={OFFERS_FOUND}
           offers={OFFERS}
           onOfferTitleClick = {() => {}}
-        />
+        />,
+        {
+          createNodeMock: () => document.createElement(`div`)
+        }
     ).toJSON();
 
   expect(tree).toMatchSnapshot();

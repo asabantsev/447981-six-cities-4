@@ -48,7 +48,7 @@ class OfferCard extends PureComponent {
           </div>
           <h2 className="place-card__name">
             <a href="#"
-              onClick = {() =>onOfferTitleClick(this.id)}
+              onClick = {() =>onOfferTitleClick(id)}
             >{title}</a>
           </h2>
           <p className="place-card__type">{type}</p>

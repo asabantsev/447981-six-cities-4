@@ -77,11 +77,7 @@ const Main = (props) => {
               <OfferList offers = {offers} onOfferTitleClick = {onOfferTitleClick}/>
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map">
-                <div id="map">
-                  <Map offers={offers} />
-                </div>
-              </section>
+              <Map offers={offers} />
             </div>
           </div>
         </div>

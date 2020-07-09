@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import OfferList from "../offer-list/offer-list.jsx";
+import {OfferListMain} from "../offer-list-main/offer-list-main.jsx";
 import Map from "../map/map.jsx";
 
 const Main = (props) => {
@@ -74,7 +74,7 @@ const Main = (props) => {
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found">{offersFound} places to stay in Amsterdam</b>
-              <OfferList offers = {offers} onOfferTitleClick = {onOfferTitleClick}/>
+              <OfferListMain offers = {offers} onOfferTitleClick = {onOfferTitleClick}/>
             </section>
             <div className="cities__right-section">
               <Map offers={offers} />

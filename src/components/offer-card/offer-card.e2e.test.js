@@ -14,6 +14,8 @@ const OFFER = {
   isPremium: true,
 };
 
+const CLASSNAME = `near`;
+
 Enzyme.configure({
   adapter: new Adapter(),
 });
@@ -27,6 +29,7 @@ describe(`OfferCardE2eTest`, () => {
           offer = {OFFER}
           onOfferTitleClick = {() => {}}
           onCardHover = {onCardHover}
+          className = {CLASSNAME}
         />
     );
 
@@ -38,6 +41,24 @@ describe(`OfferCardE2eTest`, () => {
     expect(onCardHover).toHaveBeenCalledTimes(2);
   });
 
+  it(`Should cardHoverHandler works correctly`, () => {
+    const onCardHover = jest.fn();
+
+    const offerCard = shallow(
+        <OfferCard
+          offer = {OFFER}
+          onOfferTitleClick = {() => {}}
+          onCardHover = {onCardHover}
+          className = {CLASSNAME}
+        />
+    );
+
+    const card = offerCard.find(`.place-card`);
+
+    card.simulate(`mouseEnter`);
+    expect(onCardHover.mock.calls[0][0]).toBe(OFFER.id);
+  });
+
   it(`Should offer card title be pressed`, () => {
     const onOfferTitleClick = jest.fn();
 
@@ -46,12 +67,13 @@ describe(`OfferCardE2eTest`, () => {
           offer = {OFFER}
           onOfferTitleClick = {onOfferTitleClick}
           onCardHover = {() => {}}
+          className = {CLASSNAME}
         />
     );
 
     const offerTitle = offerCard.find(`.place-card__name a`);
 
     offerTitle.simulate(`click`);
-    expect(onOfferTitleClick).toHaveBeenCalledTimes(1);
+    expect(onOfferTitleClick.mock.calls[0][0]).toBe(OFFER.id);
   });
 });

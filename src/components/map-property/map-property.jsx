@@ -2,7 +2,7 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import leaflet from "leaflet";
 
-class Map extends PureComponent {
+class MapProperty extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -10,21 +10,28 @@ class Map extends PureComponent {
   }
 
   componentDidMount() {
-    const city = [52.38333, 4.9];
+    const {currentOffer, offers} = this.props;
 
-    const icon = leaflet.icon({
+    const position = currentOffer.coords;
+
+    const pin = leaflet.icon({
       iconUrl: `img/pin.svg`,
+      iconSize: [30, 30]
+    });
+
+    const activePin = leaflet.icon({
+      iconUrl: `./pin-active.svg`,
       iconSize: [30, 30]
     });
 
     const zoom = 12;
     const map = leaflet.map(this._mapRef.current, {
-      center: city,
+      center: position,
       zoom,
       zoomControl: false,
-      marker: true,
+      marker: true
     });
-    map.setView(city, zoom);
+    map.setView(position, zoom);
 
     leaflet
       .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
@@ -32,24 +39,29 @@ class Map extends PureComponent {
       })
       .addTo(map);
 
-    const {offers} = this.props;
+    leaflet
+      .marker(currentOffer.coords, {activePin})
+      .addTo(map);
 
     offers.map((offer) => {
       leaflet
-        .marker(offer.coords, {icon})
+        .marker(offer.coords, {pin})
         .addTo(map);
     });
   }
 
   render() {
     return (
-      <section className="cities__map map" ref={this._mapRef}>
+      <section className="property__map map" ref={this._mapRef}>
       </section>
     );
   }
 }
 
-Map.propTypes = {
+MapProperty.propTypes = {
+  currentOffer: PropTypes.shape({
+    coords: PropTypes.array.isRequired,
+  }).isRequired,
   offers: PropTypes.arrayOf(
       PropTypes.shape({
         coords: PropTypes.array.isRequired,
@@ -57,4 +69,5 @@ Map.propTypes = {
   ).isRequired,
 };
 
-export default Map;
+
+export default MapProperty;

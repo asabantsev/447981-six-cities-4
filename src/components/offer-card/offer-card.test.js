@@ -8,10 +8,12 @@ const OFFER = {
   price: 120,
   rating: 4,
   type: `Apartment`,
-  src: `img/apartment-01.jpg`,
+  // src: `img/apartment-01.jpg`,
   isInBookmark: false,
   isPremium: true,
 };
+
+const CLASSNAME = `near`;
 
 describe(`OfferSnapTest`, () => {
   it(`OfferCard should render offer card component`, () => {
@@ -20,6 +22,7 @@ describe(`OfferSnapTest`, () => {
         offer = {OFFER}
         onOfferTitleClick = {() => {}}
         onCardHover = {() => {}}
+        className = {CLASSNAME}
       />)
       .toJSON();
 

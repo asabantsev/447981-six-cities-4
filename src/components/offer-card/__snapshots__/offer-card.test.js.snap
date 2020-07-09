@@ -2,19 +2,23 @@
 
 exports[`OfferSnapTest OfferCard should render offer card component 1`] = `
 <article
-  className="cities__place-card place-card"
+  className="near__place-card place-card"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
   <div
     className="place-card__mark"
   >
-    <span>
-      Premium
-    </span>
+    <div
+      className="place-card__mark"
+    >
+      <span>
+        Premium
+      </span>
+    </div>
   </div>
   <div
-    className="cities__image-wrapper place-card__image-wrapper"
+    className="near__image-wrapper place-card__image-wrapper"
   >
     <a
       href="#"
@@ -23,7 +27,6 @@ exports[`OfferSnapTest OfferCard should render offer card component 1`] = `
         alt="Place image"
         className="place-card__image"
         height="200"
-        src="img/apartment-01.jpg"
         width="260"
       />
     </a>

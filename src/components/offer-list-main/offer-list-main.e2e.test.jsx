@@ -1,69 +1,63 @@
 import React from "react";
-import Enzyme, {shallow} from "enzyme";
+import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import OfferList from "./offer-list.jsx";
+import {OfferListMain} from "./offer-list-main.jsx";
 
 const OFFERS = [
   {
     id: 1,
-    title: `Beautiful & luxurious apartment at great location`,
+    title: `Beautiful &amp; luxurious apartment at great location`,
     price: 120,
     rating: 4,
     type: `Apartment`,
-    src: `img/apartment-01.jpg`,
     isInBookmark: false,
     isPremium: true,
-  }, {
+  },
+  {
     id: 2,
     title: `Wood and stone place`,
     price: 80,
     rating: 4,
     type: `Private room`,
-    src: `img/room.jpg`,
     isInBookmark: true,
     isPremium: false,
-  }, {
+  },
+  {
     id: 3,
     title: `Canal View Prinsengracht`,
     price: 132,
     rating: 4,
     type: `Apartment`,
-    src: `img/apartment-02.jpg`,
     isInBookmark: false,
     isPremium: false,
-  }, {
+  },
+  {
     id: 4,
     title: `Nice, cozy, warm big bed apartment`,
     price: 180,
-    rating: 5,
+    rating: 4,
     type: `Apartment`,
-    src: `img/apartment-03.jpg`,
     isInBookmark: false,
     isPremium: false,
-  }
+  },
 ];
 
-const CLASSNAME = `near`;
+const CLASSNAME = `cities`;
+
 
 Enzyme.configure({
   adapter: new Adapter(),
 });
 
-describe(`OfferListE2eTest`, () => {
-  it(`_handleCardHover() should change offer list state`, () => {
-
-    const offerList = shallow(
-        <OfferList
-          className = {CLASSNAME}
+describe(`OfferListMain`, () => {
+  it(`className should take current places in the children component`, () => {
+    const offerListMain = mount(
+        <OfferListMain
           offers = {OFFERS}
-          onCardHover = {() => {}}
           onOfferTitleClick = {() => {}}
         />
     );
-    OFFERS.forEach((offer) => {
-      const id = offer.id;
-      offerList.instance()._handleCardHover(id);
-      expect(offerList.state(`idCard`)).toEqual(id);
-    });
+    const elements = offerListMain.find(`.${CLASSNAME}`);
+    expect(elements.length).not.toBe(0);
   });
 });

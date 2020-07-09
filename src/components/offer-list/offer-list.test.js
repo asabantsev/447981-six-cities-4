@@ -42,10 +42,13 @@ const OFFERS = [
   }
 ];
 
+const CLASSNAME = `near`;
+
 describe(`OfferListSnapTest`, () => {
   it(`OfferList should render list component with offers cards`, () => {
     const tree = renderer
       .create(<OfferList
+        className = {CLASSNAME}
         offers = {OFFERS}
         onOfferTitleClick = {() => {}}
       />)

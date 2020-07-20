@@ -8,7 +8,7 @@ const OFFER = {
   price: 120,
   rating: 4,
   type: `Apartment`,
-  // src: `img/apartment-01.jpg`,
+  src: `img/apartment-01.jpg`,
   isInBookmark: false,
   isPremium: true,
 };

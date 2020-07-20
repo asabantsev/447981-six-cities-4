@@ -4,6 +4,7 @@ import Adapter from "enzyme-adapter-react-16";
 import Main from "./main";
 
 const OFFERS_FOUND = 312;
+const CITIES = [`Amsterdam`, `Paris`];
 const OFFERS = [
   {
     id: 1,
@@ -61,6 +62,9 @@ describe(`MainE2eTest`, () => {
           offersFound={OFFERS_FOUND}
           offers={OFFERS}
           onOfferTitleClick = {onOfferTitleClick}
+          cities = {CITIES}
+          onCityTitleClick = {() => {}}
+          selectedCity = {CITIES[0]}
         />
     );
 

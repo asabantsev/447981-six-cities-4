@@ -14,13 +14,13 @@ class MapProperty extends PureComponent {
 
     const position = currentOffer.coords;
 
-    const pin = leaflet.icon({
+    const icon = leaflet.icon({
       iconUrl: `img/pin.svg`,
       iconSize: [30, 30]
     });
 
-    const activePin = leaflet.icon({
-      iconUrl: `./pin-active.svg`,
+    const activeIcon = leaflet.icon({
+      iconUrl: `img/pin-active.svg`,
       iconSize: [30, 30]
     });
 
@@ -40,12 +40,12 @@ class MapProperty extends PureComponent {
       .addTo(map);
 
     leaflet
-      .marker(currentOffer.coords, {activePin})
+      .marker(currentOffer.coords, {icon: activeIcon})
       .addTo(map);
 
     offers.map((offer) => {
       leaflet
-        .marker(offer.coords, {pin})
+        .marker(offer.coords, {icon})
         .addTo(map);
     });
   }

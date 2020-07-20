@@ -3,6 +3,7 @@ import renderer from "react-test-renderer";
 import Main from "./main";
 
 const OFFERS_FOUND = 312;
+const CITIES = [`Amsterdam`, `Paris`];
 const OFFERS = [
   {
     id: 1,
@@ -47,18 +48,40 @@ const OFFERS = [
   }
 ];
 
-it(`Should Main render correctly`, () => {
-  const tree = renderer
-    .create(
-        <Main
-          offersFound={OFFERS_FOUND}
-          offers={OFFERS}
-          onOfferTitleClick = {() => {}}
-        />,
-        {
-          createNodeMock: () => document.createElement(`div`)
-        }
-    ).toJSON();
+describe(`MainSnapTest`, () => {
+  it(`Main with offers should render MainPag with offers list`, () => {
+    const tree = renderer
+      .create(<Main
+        offersFound = {OFFERS_FOUND}
+        offers = {OFFERS}
+        cities = {CITIES}
+        onOfferTitleClick = {() => {}}
+        onCityTitleClick = {() => {}}
+        selectedCity = {CITIES[0]}
+      />,
+      {
+        createNodeMock: () => document.createElement(`div`)
+      })
+      .toJSON();
 
-  expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it(`Main without offers should render MainPage Empty`, () => {
+    const tree = renderer
+      .create(<Main
+        offersFound = {OFFERS_FOUND}
+        offers = {[]}
+        cities = {CITIES}
+        onOfferTitleClick = {() => {}}
+        onCityTitleClick = {() => {}}
+        selectedCity = {CITIES[0]}
+      />,
+      {
+        createNodeMock: () => document.createElement(`div`)
+      })
+      .toJSON();
+
+    expect(tree).toMatchSnapshot();
+  });
 });

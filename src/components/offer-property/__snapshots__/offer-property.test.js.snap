@@ -786,7 +786,7 @@ exports[`OfferPropertySnapTest OfferProperty should render offer page 1`] = `
                   alt="Place image"
                   className="place-card__image"
                   height="200"
-                  src="img/room.jpg"
+                  src="img/apartment-01.jpg"
                   width="260"
                 />
               </a>
@@ -885,7 +885,7 @@ exports[`OfferPropertySnapTest OfferProperty should render offer page 1`] = `
                   alt="Place image"
                   className="place-card__image"
                   height="200"
-                  src="img/apartment-02.jpg"
+                  src="img/apartment-01.jpg"
                   width="260"
                 />
               </a>
@@ -984,7 +984,7 @@ exports[`OfferPropertySnapTest OfferProperty should render offer page 1`] = `
                   alt="Place image"
                   className="place-card__image"
                   height="200"
-                  src="img/apartment-03.jpg"
+                  src="img/apartment-01.jpg"
                   width="260"
                 />
               </a>

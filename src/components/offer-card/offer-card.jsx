@@ -13,7 +13,7 @@ class OfferCard extends PureComponent {
 
   render() {
     const {className, offer, onOfferTitleClick, onCardHover} = this.props;
-    const {id, title, price, type, src, isInBookmark, isPremium} = offer;
+    const {id, title, price, type, isInBookmark, isPremium} = offer;
     this.id = id;
     this.onCardHover = onCardHover;
 
@@ -26,7 +26,7 @@ class OfferCard extends PureComponent {
         </div> : ``}
         <div className={`${className}__image-wrapper place-card__image-wrapper`}>
           <a href="#">
-            <img className="place-card__image" src={src} width="260" height="200" alt="Place image"></img>
+            <img className="place-card__image" src="img/apartment-01.jpg" width="260" height="200" alt="Place image"></img>
           </a>
         </div>
         <div className="place-card__info">
